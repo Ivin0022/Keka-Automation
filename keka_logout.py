@@ -18,7 +18,7 @@ PASSWORD = os.environ.get("PASSWORD")
 # Default initiated with True.
 # instantiate a chrome options object so you can set the size and headless preference
 chrome_options = Options()
-chrome_options.add_argument("--headless")
+# chrome_options.add_argument("--headless")
 chrome_options.add_argument("--window-size=1920x1080")
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
@@ -32,7 +32,7 @@ def keka_logout():
     browser = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_driver)
     print('Logout Process Started: ')
 
-    browser.get("https://discidium.keka.com/#/home")
+    browser.get("https://zartek.keka.com/#/home")
     print('Website Opened')
 
     time.sleep(5)
@@ -61,7 +61,7 @@ def keka_logout():
 
     time.sleep(5)
 
-    web_clockout_confirm_button = browser.find_element_by_xpath('//*[@id="attendance-widget"]/div/div[2]/div/div[1]/div[2]/div[2]/input[2]')
+    web_clockout_confirm_button = browser.find_element_by_xpath('/html/body/xhr-app-root/div/xhr-home/div/home-dashboard/div/div/div/div[1]/div[2]/div/div[5]/div[5]/home-attendance-clockin-widget/div/div[1]/div/div[1]/div/div[2]/div/div/button')
     web_clockout_confirm_button.click()
     print('Confirmed WebClock Out')
 
@@ -79,7 +79,7 @@ def keka_logout():
     f.close()
 
     time.sleep(20)
-    print time.strftime("Cron Successfully ran last at: " + "%Y-%m-%d %H:%M")
+    print(time.strftime("Cron Successfully ran last at: " + "%Y-%m-%d %H:%M"))
     browser.quit()
 
 
